@@ -1,39 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>인터넷활용 실습 템플릿</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="광운대학교 소프트웨어학부 최지한의 포트폴리오. 일상의 문제를 코드로 풀고, 사진과 글로 시선을 기록합니다.">
+    <meta name="theme-color" content="#92a8d1">
+    <title>홈 | 최지한</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
-<body>
-  <header>
-    <h1>최지한</h1>
-    <p class="subtitle">안녕하세요.</p>
-  </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <main class="container">
-    <section>
-      <h2>홈</h2>
-      <p>안녕하세요! 저는 <strong>최지한</strong>입니다.</p>
-      <ul>
-        <li>학과/학번: 소프트웨어학부/2026403072</li>
-        <li>관심 분야: 비밀</li>
-        <li>기술 스택(예: HTML, CSS, JS): Swift</li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <small>&copy; <span id="year"></span> 이름: 최지한</small>
-  </footer>
-  <script src="script.js"></script>
+<body class="page-home">
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <header>
+        <a class="logo" href="index.html" aria-label="최지한 홈">jihan<span> *</span></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="메뉴 열기">메뉴
+            <span>＋</span></button>
+        <nav id="navigation" aria-label="주 메뉴">
+            <a href="index.html" aria-current="page">홈</a><a href="about.html">소개</a><a href="projects.html">프로젝트</a><a
+                href="notes.html">활동 기록</a><a href="contact.html">연락처</a>
+        </nav>
+    </header>
+    <main id="main">
+        <section class="hero wrap" id="home">
+            <div class="hero-top">
+                <p class="eyebrow"><span class="status-dot"></span> KWANGWOON UNIVERSITY · SOFTWARE</p><span
+                    class="edition">PORTFOLIO / 2026</span>
+            </div>
+            <div class="hero-layout">
+                <div>
+                    <p class="hello">안녕하세요, 최지한입니다.</p>
+                    <h1>작은 호기심을<br>쓸모 있는 <span>경험으로.</span></h1>
+                    <p class="hero-description">일상의 불편함을 코드로 풀고,<br>사진과 글로 세상을 바라보는 시선을 기록합니다.</p><a class="button dark"
+                        href="projects.html">프로젝트 살펴보기 <span>↗</span></a>
+                </div>
+                <div class="hero-art" aria-label="코드와 관찰을 표현한 그래픽">
+                    <div class="art-grid"></div><span class="art-caption">A WORK IN PROGRESS</span>
+                    <div class="orb orb-one"></div>
+                    <div class="orb orb-two"></div>
+                    <div class="art-symbol">✳</div>
+                    <div class="code-stamp"><span>01 /
+                            CURIOSITY</span><code>observe();<br>build();<br><em>repeat();</em></code></div><span
+                        class="art-bottom">계속 배우고, 조금씩 더 나아가기.</span>
+                </div>
+            </div>
+            <div class="hero-bottom"><span>DEVELOPER & OBSERVER</span><a href="about.html">조금 더 알아보기 <span>↗</span></a>
+            </div>
+        </section>
+        <section class="home-featured wrap" aria-labelledby="featured-title">
+            <div class="featured-heading">
+                <h2 id="featured-title">대표 프로젝트</h2><a href="projects.html">전체 프로젝트 보기 ↗</a>
+            </div>
+            <div class="featured-links"><a href="projects.html#lumotion"><span class="featured-index">01 /
+                        iOS</span><strong>Lumotion <span>↗</span></strong>
+                    <p>사진 속 빛을 영상으로.</p>
+                </a><a href="projects.html#quitly"><span class="featured-index">02 / macOS</span><strong>Quitly
+                        <span>↗</span></strong>
+                    <p>더 가벼운 작업 공간.</p>
+                </a><a href="projects.html#meetplan"><span class="featured-index">03 / Python</span><strong>MeetPlan
+                        <span>↗</span></strong>
+                    <p>함께할 수 있는 시간 찾기.</p>
+                </a></div>
+        </section>
+    </main>
+    <footer class="wrap"><a class="logo" href="index.html">jihan<span> *</span></a><span>© 2026 최지한 · HTML, CSS &
+            JavaScript</span><a href="index.html">HOME ↗</a></footer>
 </body>
 
 </html>
