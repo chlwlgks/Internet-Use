@@ -2,7 +2,7 @@
 
 :root {
     --ink: #202124;
-    --muted: #696d75;
+    --muted: #585f6b;
     --blue: #92a8d1;
     --line: #e4e5e8;
     --paper: #fafaf9
@@ -22,7 +22,9 @@ body {
     background: var(--paper);
     color: var(--ink);
     font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
-    word-break: keep-all
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    line-height: 1.75
 }
 
 a {
@@ -34,11 +36,6 @@ button {
     font: inherit;
     color: inherit;
     cursor: pointer
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent
 }
 
 button:focus-visible,
@@ -56,16 +53,18 @@ button {
 }
 
 .wrap {
-    max-width: 1200px;
+    max-width: 1120px;
     margin: auto;
     width: calc(100% - 112px)
 }
 
 header {
-    height: 96px;
-    max-width: 1400px;
-    margin: auto;
-    padding: 0 56px;
+    min-height: 88px;
+    width: calc(100% - 112px);
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -87,7 +86,7 @@ nav {
     display: flex;
     gap: 36px;
     align-items: center;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600
 }
 
@@ -103,12 +102,8 @@ nav a:hover {
     margin-left: 12px
 }
 
-.menu-toggle {
-    display: none
-}
-
 .eyebrow {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.7px;
     display: flex;
@@ -136,14 +131,14 @@ nav a:hover {
 
 .edition,
 .hero-bottom {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 1.5px
 }
 
 .hero-layout {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 64px;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 48px;
     align-items: center;
     padding: 48px 0 62px
 }
@@ -154,9 +149,9 @@ nav a:hover {
 }
 
 h1 {
-    font-size: clamp(36px, 4.3vw, 61px);
+    font-size: clamp(34px, 4vw, 54px);
     line-height: 1.36;
-    letter-spacing: -3px;
+    letter-spacing: -.045em;
     margin: 0;
     font-weight: 800
 }
@@ -167,7 +162,7 @@ h1 span {
 
 .hero-description {
     color: var(--muted);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.9;
     margin: 24px 0 32px
 }
@@ -178,7 +173,7 @@ h1 span {
     justify-content: space-between;
     gap: 42px;
     padding: 17px 23px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     border-radius: 3px
 }
@@ -290,8 +285,8 @@ h1 span {
 }
 
 .section {
-    padding-top: 105px;
-    padding-bottom: 100px;
+    padding-top: 72px;
+    padding-bottom: 72px;
     border-bottom: 1px solid var(--line)
 }
 
@@ -305,12 +300,12 @@ h2 {
 
 .about {
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 100px
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.25fr);
+    gap: 64px
 }
 
 .about-content>p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 2;
     color: var(--muted);
     margin: 0 0 18px
@@ -339,14 +334,14 @@ h2 {
 }
 
 .about-facts span {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 1.5px;
     color: var(--muted);
     margin-bottom: 12px
 }
 
 .about-facts strong {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500
 }
 
@@ -367,7 +362,7 @@ h2 {
     border: 1px solid #d9dce2;
     padding: 7px 10px;
     border-radius: 3px;
-    font-size: 10px
+    font-size: 14px
 }
 
 .section-title {
@@ -379,7 +374,7 @@ h2 {
 
 .section-title>p {
     color: var(--muted);
-    font-size: 13px;
+    font-size: 16px;
     margin-bottom: 8px
 }
 
@@ -394,7 +389,7 @@ h2 {
     border: 1px solid var(--line);
     border-radius: 30px;
     padding: 9px 19px;
-    font-size: 12px
+    font-size: 14px
 }
 
 .filters button.active {
@@ -622,7 +617,7 @@ h2 {
 .project-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 12px;
     color: var(--muted);
     margin-top: 20px
 }
@@ -641,7 +636,7 @@ h2 {
 }
 
 .project-card p {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--muted);
     margin: 0
 }
@@ -733,7 +728,7 @@ h2 {
 }
 
 .project-note {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--muted);
     margin-top: 30px;
     line-height: 1.7
@@ -757,7 +752,7 @@ h2 {
 }
 
 .note-category {
-    font-size: 9px;
+    font-size: 12px;
     color: #6b83ad;
     letter-spacing: 1.4px
 }
@@ -770,7 +765,7 @@ h2 {
 }
 
 .note-list p {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--muted);
     line-height: 1.9;
     margin: 0
@@ -806,7 +801,7 @@ h2 {
 
 .contact-bottom p {
     color: #596471;
-    font-size: 13px
+    font-size: 16px
 }
 
 footer {
@@ -818,7 +813,7 @@ footer {
 
 footer>span,
 footer>a:last-child {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--muted)
 }
 
@@ -879,7 +874,7 @@ dialog h3 {
 
 dialog p,
 dialog li {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.9;
     color: var(--muted)
 }
@@ -892,10 +887,6 @@ dialog ul {
     margin-top: 24px
 }
 
-.menu-toggle span {
-    font-size: 20px
-}
-
 @media(min-width:1450px) {
     .hero-layout {
         padding-top: 65px;
@@ -904,325 +895,6 @@ dialog ul {
 
     .hero-art {
         height: 420px
-    }
-}
-
-@media(max-width:1000px) {
-    .wrap {
-        width: calc(100% - 64px)
-    }
-
-    header {
-        padding: 0 32px
-    }
-
-    .hero-layout {
-        gap: 30px
-    }
-
-    .hero-art {
-        height: 350px
-    }
-
-    h1 {
-        font-size: 44px
-    }
-
-    .about {
-        gap: 50px;
-        grid-template-columns: .9fr 1.2fr
-    }
-
-    .calendar-art {
-        right: 4%;
-        width: 290px
-    }
-
-    .meet-copy {
-        left: 5%
-    }
-
-    .meet-copy>span {
-        font-size: 29px
-    }
-}
-
-@media(max-width:700px) {
-    html {
-        scroll-padding-top: 20px
-    }
-
-    .wrap {
-        width: calc(100% - 40px)
-    }
-
-    header {
-        height: 76px;
-        padding: 0 20px;
-        position: relative
-    }
-
-    .logo {
-        font-size: 27px
-    }
-
-    .menu-toggle {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: none;
-        font-size: 12px
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        background: var(--paper);
-        padding: 24px;
-        box-shadow: 0 14px 20px #0000000d;
-        flex-direction: column;
-        align-items: start;
-        gap: 22px
-    }
-
-    nav.open {
-        display: flex
-    }
-
-    .nav-contact {
-        margin-left: 0
-    }
-
-    .hero {
-        padding-top: 27px
-    }
-
-    .hero-top .eyebrow {
-        font-size: 8px;
-        letter-spacing: .8px
-    }
-
-    .edition {
-        font-size: 8px
-    }
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-        padding: 35px 0 30px;
-        gap: 38px
-    }
-
-    .hello {
-        font-size: 14px;
-        margin-bottom: 18px
-    }
-
-    h1 {
-        font-size: 42px;
-        letter-spacing: -2.4px
-    }
-
-    .hero-description {
-        font-size: 13px;
-        margin: 21px 0 24px
-    }
-
-    .hero-art {
-        height: 310px
-    }
-
-    .orb {
-        left: calc(50% - 125px);
-        top: 35px;
-        width: 240px;
-        height: 240px
-    }
-
-    .art-symbol {
-        right: 17%;
-        top: 38px;
-        font-size: 150px
-    }
-
-    .code-stamp {
-        left: 15%;
-        top: 115px;
-        width: 180px;
-        padding: 17px 23px
-    }
-
-    .code-stamp code {
-        font-size: 18px;
-        margin-top: 12px
-    }
-
-    .hero-bottom {
-        font-size: 8px;
-        letter-spacing: .6px
-    }
-
-    .section {
-        padding-top: 65px;
-        padding-bottom: 60px
-    }
-
-    h2 {
-        font-size: 29px;
-        letter-spacing: -1px
-    }
-
-    .about {
-        grid-template-columns: 1fr;
-        gap: 30px
-    }
-
-    .about-content>.large-copy {
-        font-size: 18px
-    }
-
-    .about-content>p {
-        font-size: 13px
-    }
-
-    .section-title {
-        display: block
-    }
-
-    .section-title>p {
-        font-size: 12px;
-        margin-top: 18px
-    }
-
-    .filters {
-        margin-top: 26px
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 32px
-    }
-
-    .wide {
-        grid-column: auto
-    }
-
-    .project-visual {
-        height: 310px
-    }
-
-    .meet-copy {
-        top: 65px;
-        left: 24px
-    }
-
-    .meet-copy>span {
-        font-size: 23px
-    }
-
-    .meet-copy small {
-        font-size: 9px;
-        margin-top: 8px
-    }
-
-    .calendar-art {
-        width: 205px;
-        top: 145px;
-        right: 22px;
-        padding: 12px
-    }
-
-    .calendar-head {
-        font-size: 9px;
-        margin-bottom: 10px
-    }
-
-    .calendar-days {
-        font-size: 5px;
-        margin-bottom: 5px
-    }
-
-    .calendar-grid i {
-        height: 19px
-    }
-
-    .calendar-event {
-        top: 20px;
-        font-size: 6px;
-        padding: 6px
-    }
-
-    .meetplan .visual-footer {
-        bottom: 18px
-    }
-
-    .meetplan {
-        height: 340px
-    }
-
-    .note-list article {
-        gap: 20px;
-        padding: 25px 0
-    }
-
-    .note-list h3 {
-        font-size: 17px
-    }
-
-    .note-list p {
-        font-size: 12px
-    }
-
-    .note-list p br {
-        display: none
-    }
-
-    .note-mark {
-        display: none
-    }
-
-    .contact {
-        margin-top: 25px;
-        padding: 50px 0
-    }
-
-    .contact h2 {
-        font-size: 30px;
-        letter-spacing: -1.4px
-    }
-
-    .contact-bottom {
-        display: block
-    }
-
-    .contact-bottom p {
-        line-height: 1.8;
-        font-size: 12px;
-        margin-bottom: 22px
-    }
-
-    footer {
-        min-height: 140px;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 25px 0
-    }
-
-    footer>span {
-        order: 3;
-        width: 100%;
-        font-size: 9px
-    }
-
-    dialog {
-        padding: 35px 25px
-    }
-
-    .eyebrow {
-        font-size: 9px
     }
 }
 
@@ -1283,7 +955,7 @@ nav a[aria-current="page"]:after {
 }
 
 .featured-heading>a {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--muted)
 }
 
@@ -1303,7 +975,7 @@ nav a[aria-current="page"]:after {
 }
 
 .featured-index {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 1.2px;
     color: var(--muted)
 }
@@ -1321,7 +993,7 @@ nav a[aria-current="page"]:after {
 }
 
 .featured-links p {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--muted);
     margin-bottom: 0
 }
@@ -1347,7 +1019,7 @@ nav a[aria-current="page"]:after {
     display: flex;
     justify-content: space-between;
     padding: 30px 0 50px;
-    font-size: 13px
+    font-size: 14px
 }
 
 .page-next span {
@@ -1378,7 +1050,7 @@ nav a[aria-current="page"]:after {
 }
 
 .contact-lead {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.9;
     color: var(--muted);
     margin-top: 26px
@@ -1408,14 +1080,14 @@ nav a[aria-current="page"]:after {
 }
 
 .contact-information p {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--muted);
     line-height: 1.9;
     margin: 10px 0 0
 }
 
 .text-link {
-    font-size: 13px
+    font-size: 14px
 }
 
 .page-contact footer {
@@ -1435,80 +1107,33 @@ nav a[aria-current="page"]:after {
     padding-top: 85px
 }
 
-@media(max-width:700px) {
-    .page-home .hero-art {
-        height: 270px
-    }
+/* Shared reading rhythm and desktop content layout. */
+nav a { min-height: 44px; display: inline-flex; align-items: center; }
+nav a[aria-current="page"]:after { bottom: 0; }
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+.hero-description, .about-content > p, .contact-lead { max-width: 38em; }
+.hero-top, .hero-bottom, .project-meta { gap: 16px; flex-wrap: wrap; }
+.hero-top .eyebrow { letter-spacing: 1px; }
+.hero-bottom { letter-spacing: .8px; }
+.button, .filters button { min-height: 44px; }
+.filters { flex-wrap: wrap; }
+.featured-heading h2 { font-size: 20px; }
+.featured-links { gap: 20px; }
+.featured-links > a { padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.featured-links > a:hover { border-color: #92a8d1; background: #f3f6fb; }
+.featured-links strong { font-weight: 600; }
+.project-card p { line-height: 1.8; }
+.project-meta { letter-spacing: 0; }
+.project-visual, .hero-art { border-radius: 10px; }
+.note-list article { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 24px; padding: 32px 0; }
+.note-list h3 { font-size: 22px; font-weight: 600; line-height: 1.5; }
+.note-list p { max-width: 46em; }
+.note-category { color: #526e9e; letter-spacing: 1px; }
+.note-mark { display: none; }
+.page-next { align-items: center; gap: 24px; }
+footer { gap: 24px; border-top: 1px solid var(--line); }
+dialog li + li { margin-top: 8px; }
+dialog h3 { color: var(--ink); font-size: 16px; }
 
-    .page-home .hero-layout {
-        gap: 28px
-    }
-
-    .page-home .art-caption {
-        top: 18px
-    }
-
-    .page-home .art-bottom {
-        bottom: 18px
-    }
-
-    .page-home .orb {
-        top: 20px;
-        width: 220px;
-        height: 220px
-    }
-
-    .page-home .code-stamp {
-        top: 95px
-    }
-
-    .featured-links {
-        grid-template-columns: 1fr;
-        gap: 20px
-    }
-
-    .featured-links>a {
-        padding-top: 18px
-    }
-
-    .featured-links strong {
-        font-size: 19px
-    }
-
-    .home-featured {
-        padding-top: 28px
-    }
-
-    .page-next {
-        gap: 25px;
-        font-size: 12px;
-        line-height: 1.8
-    }
-
-    .contact-page {
-        padding: 55px 0
-    }
-
-    .contact-page h1 {
-        font-size: 32px;
-        letter-spacing: -1.5px
-    }
-
-    .contact-lead {
-        font-size: 13px
-    }
-
-    .contact-information {
-        padding: 22px 18px
-    }
-
-    .contact-information p {
-        font-size: 12px
-    }
-
-    .page-about .about,
-    .page-projects .section,
-    .page-notes .section {
-        padding-top: 45px
-    }
-}
+.page-title { font-size: clamp(30px, 3.4vw, 42px); line-height: 1.45; letter-spacing: -.04em; margin: 16px 0 0; font-weight: 700; }
