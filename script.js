@@ -56,3 +56,103 @@ document.querySelector('.dialog-done').addEventListener('click', () => dialog.cl
 dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
 dialog.addEventListener('click', event => { const rect = dialog.getBoundingClientRect(); if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close(); });
 }
+
+// dday_sample.html의 Date 객체와 날짜 차이 계산 흐름을 사용합니다.
+const ddayForm = document.querySelector('#dday-form');
+if (ddayForm) {
+  const input = document.querySelector('#target-date');
+  input.addEventListener('input', () => input.setCustomValidity(''));
+  ddayForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    // 1. 오늘 날짜 객체 생성
+    let now = new Date();
+
+    // 2. prompt() 대신 화면의 날짜 입력란에서 연, 월, 일을 가져옵니다.
+    let dateParts = input.value.split('-');
+    let year = Number(dateParts[0]);
+    let month = Number(dateParts[1]);
+    let day = Number(dateParts[2]);
+
+    // 3. 목표 날짜 객체 생성 (월은 0부터 시작)
+    let targetDate = new Date(year, month - 1, day);
+    // Date 생성자가 1~99년을 1901~1999년으로 해석하는 동작을 보정합니다.
+    targetDate.setFullYear(year);
+    if (!year || targetDate.getFullYear() !== year ||
+        targetDate.getMonth() !== month - 1 || targetDate.getDate() !== day) {
+      input.setCustomValidity('올바른 날짜를 입력해 주세요.');
+      input.reportValidity();
+      return;
+    }
+
+    // 시각과 서머타임 때문에 날짜 차이가 달라지지 않도록
+    // 두 날짜의 연·월·일을 UTC 자정으로 맞춥니다.
+    now.setUTCFullYear(now.getFullYear(), now.getMonth(), now.getDate());
+    now.setUTCHours(0, 0, 0, 0);
+    targetDate.setUTCFullYear(year, month - 1, day);
+    targetDate.setUTCHours(0, 0, 0, 0);
+
+    // 4. 날짜 차이 계산 (밀리초 단위)
+    let diffMs = targetDate.getTime() - now.getTime();
+
+    // 5. 밀리초를 일 단위로 변환
+    let diffDay = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+    // 6. document.write() 대신 기존 결과 영역의 글자를 바꿉니다.
+    const result = document.querySelector('#dday-value');
+    const description = document.querySelector('#dday-description');
+    if (diffDay === 0) {
+      result.textContent = 'D-Day';
+      description.textContent = input.value + ' · D-Day 입니다!';
+    } else if (diffDay > 0) {
+      result.textContent = 'D-' + diffDay;
+      description.textContent = input.value + ' · ' + diffDay + '일 남았습니다.';
+    } else {
+      result.textContent = 'D+' + Math.abs(diffDay);
+      description.textContent = input.value + ' · ' + Math.abs(diffDay) + '일 지났습니다.';
+    }
+  });
+}
+
+// random_sample.html의 String → Array → Math 순서를 사용합니다.
+const randomForm = document.querySelector('#random-form');
+if (randomForm) {
+  const input = document.querySelector('#random-items');
+  let drawCount = 0;
+  input.addEventListener('input', () => input.setCustomValidity(''));
+  randomForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    // 1. prompt() 대신 화면의 입력란에서 문자열을 가져옵니다.
+    let inputString = input.value;
+
+    // 2. 줄바꿈도 쉼표로 바꾼 뒤 split(',')으로 배열을 만듭니다.
+    inputString = inputString.replace(/\r?\n/g, ',');
+    let items = inputString.split(',');
+
+    // 빈 항목과 중복을 제외하는 부분만 예제에 추가했습니다.
+    let cleanedItems = [];
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i].trim();
+      if (item !== '' && !cleanedItems.includes(item)) {
+        cleanedItems.push(item);
+      }
+    }
+    items = cleanedItems;
+    if (items.length === 0) {
+      input.setCustomValidity('뽑을 항목을 하나 이상 입력해 주세요.');
+      input.reportValidity();
+      return;
+    }
+
+    // 3. Math.random()과 Math.floor()로 랜덤 인덱스 뽑기
+    let index = Math.floor(Math.random() * items.length);
+    let choice = items[index].trim();
+
+    // 4. document.write() 대신 결과 영역에 텍스트로 출력합니다.
+    document.querySelector('#random-value').textContent = choice;
+    drawCount += 1;
+    document.querySelector('#random-description').textContent = drawCount +
+      '번째 뽑기 · ' + items.length + '개 중 선택했습니다. 다시 뽑으면 같은 항목이 나올 수도 있어요.';
+  });
+}

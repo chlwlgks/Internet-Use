@@ -1137,3 +1137,20 @@ dialog li + li { margin-top: 8px; }
 dialog h3 { color: var(--ink); font-size: 16px; }
 
 .page-title { font-size: clamp(30px, 3.4vw, 42px); line-height: 1.45; letter-spacing: -.04em; margin: 16px 0 0; font-weight: 700; }
+
+/* JavaScript practice tools */
+.tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 36px; }
+.tool-card { padding: 32px; border: 1px solid var(--line); border-radius: 10px; background: #fff; display: flex; flex-direction: column; }
+.tool-card .eyebrow { color: #526e9e; margin: 0 0 16px; }
+.tool-card h3 { font-size: 25px; margin: 0; letter-spacing: -.7px; }
+.tool-description { color: var(--muted); margin: 10px 0 28px; }
+.tool-card form { display: flex; flex-direction: column; flex: 1; align-items: flex-start; }
+.tool-card label { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+.tool-card input, .tool-card textarea { width: 100%; padding: 12px 14px; border: 1px solid #bcc5d3; border-radius: 4px; background: var(--paper); color: var(--ink); font: inherit; }
+.tool-card textarea { resize: vertical; min-height: 104px; }
+.tool-card input:focus-visible, .tool-card textarea:focus-visible { outline: 3px solid #5975a6; outline-offset: 3px; }
+.tool-hint { font-size: 12px; color: var(--muted); margin: 10px 0 22px; }
+.tool-card .button { margin-top: auto; }
+.tool-result { margin-top: 28px; padding: 24px; background: #edf1f7; border-radius: 6px; min-height: 156px; }
+.tool-result strong { display: block; font-size: 30px; line-height: 1.45; color: #405473; overflow-wrap: anywhere; }
+.tool-result p { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
